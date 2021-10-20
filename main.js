@@ -24,8 +24,8 @@ const deleteFun = (i)=> {
 
 
 const updateFun = (index) => {
-    let mesage = prompt("");
-    toDoArray[index] = mesage;
+    let update1 = prompt("Enter new update");
+    toDos[index] = update1;
     renderList();
   };
 
