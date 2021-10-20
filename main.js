@@ -13,23 +13,22 @@ body.append(ULList);
 let toDos = ["wake up", "eat breakfast", "code"];
 
 
-//////////////////////////////
+///////////
 
-const deleteFun = (i)=> {
-    toDos = toDos.filter ( (item, index) => index !== i)
+const deleteFun = (i) => {
+    toDos = toDos.filter((item, index) => index !== i)
     renderList()
 }
 
-/////////////////////////////
-
+///////////
 
 const updateFun = (index) => {
     let update1 = prompt("Enter new update");
     toDos[index] = update1;
     renderList();
-  };
+};
 
-  //////////////////////
+///////////
 
 const renderList = () => {
     ULList.innerHTML = "";
@@ -42,13 +41,13 @@ const renderList = () => {
         const del = document.createElement("button")
         del.id = index;
         del.innerText = "delet task"
-        del.addEventListener("click",() => deleteFun(index))
+        del.addEventListener("click", () => deleteFun(index))
         p.append(del);
 
         const upd = document.createElement("button")
         upd.id = index;
         upd.innerText = "ubpate task"
-        upd.addEventListener("click",() => updateFun(index))
+        upd.addEventListener("click", () => updateFun(index))
         p.append(upd);
     }
 }
@@ -76,4 +75,4 @@ button1.addEventListener("click", addTask)
 
 
 
-   
+
