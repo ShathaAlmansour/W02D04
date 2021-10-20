@@ -10,17 +10,26 @@ const ULList = document.createElement('ul')
 ULList.id = "myList";
 body.append(ULList);
 
-const toDos = ["wake up", "eat breakfast", "code"];
+let toDos = ["wake up", "eat breakfast", "code"];
 
 
 //////////////////////////////
-const deleteFun = (e)=>{
-   console.log(e.target);
-   
+
+const deleteFun = (i)=> {
+    toDos = toDos.filter ( (item, index) => index !== i)
+    renderList()
 }
 
-
 /////////////////////////////
+
+
+const updateFun = (index) => {
+    let mesage = prompt("");
+    toDoArray[index] = mesage;
+    renderList();
+  };
+
+  //////////////////////
 
 const renderList = () => {
     ULList.innerHTML = "";
@@ -33,10 +42,17 @@ const renderList = () => {
         const del = document.createElement("button")
         del.id = index;
         del.innerText = "delet task"
-        del.addEventListener("click",deleteFun)
+        del.addEventListener("click",() => deleteFun(index))
         p.append(del);
+
+        const upd = document.createElement("button")
+        upd.id = index;
+        upd.innerText = "ubpate task"
+        upd.addEventListener("click",() => updateFun(index))
+        p.append(upd);
     }
 }
+
 renderList()
 
 const input1 = document.createElement("input")
@@ -57,15 +73,7 @@ const addTask = () => {
 }
 button1.addEventListener("click", addTask)
 
-// const deleteListItem = () => {
-//     if (index.value.length) {
-//         toDos.pop(index.value)
-//         renderList()
-//     }
-// }
-// del.addEventListener("Click", deleteListItem)
 
 
 
-
-
+   
